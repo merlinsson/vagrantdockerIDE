@@ -1,0 +1,10 @@
+$ttl 38400
+dev-dockerd.de.	IN	SOA	ns.dev-dockerd.de. merlin\.rothhardt.gmail.com. (
+			1484668674
+			10800
+			3600
+			604800
+			38400 )
+dev-dockerd.de.	IN	NS	ns.dev-dockerd.de.
+www.dev-dockerd.de.	IN	A	192.168.50.2
+ns.dev-dockerd.de.	IN	A	192.168.50.2

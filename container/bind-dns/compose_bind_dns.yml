@@ -1,0 +1,22 @@
+version: '2'
+services:
+  dev_dns:
+   dns: 127.0.0.1
+   container_name: dev_dns
+   image: dev-bind/bind
+   restart: always
+   hostname: dns.dev.de
+   build:
+     context: .
+   networks:
+     dev-default:
+       aliases:
+         - dns.dev.de
+   environment:
+     - ROOT_PASSWORD=root
+   ports:
+    - 192.168.50.2:10000:10000
+    - 192.168.50.2:53:53/udp
+networks:
+  dev-default:
+    external: true

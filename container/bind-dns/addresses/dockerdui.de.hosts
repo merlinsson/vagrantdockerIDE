@@ -1,0 +1,10 @@
+$ttl 38400
+dockerdui.de.	IN	SOA	ns.dockerdui.de. merlin\.rothhardt.gmail.com. (
+			1484668674
+			10800
+			3600
+			604800
+			38400 )
+dockerdui.de.	IN	NS	ns.dockerdui.de.
+dev.dockerdui.de.	IN	A	192.168.50.2
+ns.dockerdui.de.	IN	A	192.168.50.2

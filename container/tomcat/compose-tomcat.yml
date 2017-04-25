@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+ dev-dockerdui:
+    container_name: dev_dockerdui
+    image: dev-dockerd/ui
+    restart: always
+    build:
+      context: .
+    ports:
+     - "8080:8080"
+     - "8443:8443"
+     - "8009:8009"
+     - "8043:8043"
+    networks:
+     dev-default:
+       aliases:
+         - dev.dockerdui.de
+    volumes:
+    - /opt/server/dockerdui:/usr/local/tomcat/webapps/ROOT
+    - /etc/localtime:/etc/localtime
+    - /etc/timezone:/etc/timezone
+    - /var/log/dev/dockerui:/usr/local/tomcat/logs
+networks:
+  dev-default:
+    external: true

@@ -1,0 +1,12 @@
+/etc/nginx/logging/*.log {
+    compress
+    
+    missingok
+    
+	size 500M
+    maxage 7
+	copytruncate
+    
+    dateext
+	dateformat -%Y-%m-%d
+}
