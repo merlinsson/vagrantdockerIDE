@@ -1,0 +1,7 @@
+*.txt
+*.log
+.metadata/
+.recommenders/
+RemoteSystemsTempFiles/
+Servers/
+.vagrant/
