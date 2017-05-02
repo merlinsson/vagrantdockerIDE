@@ -64,6 +64,9 @@ you should also add this container to the virtual network (dev-default)
 # Certificates
 Most of the containers include a certs folder located in the single directories where the Dockerfiles are located in. If your whish to configure certificates for your application you might add your certs to this folder to make them available inside the container. (Can be used together with the Nginx or tomcat containers) 
 
+# Webapp
+The web application provided with this project is for demonstration purposes. It provides a simple web UI showing a table with all running containers. The data are requested from the docker service running on the Vagrant machine.
+
 # Comming soon
 - Support for MacOS
 - Better workaroud for ENV variables
