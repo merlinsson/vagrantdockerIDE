@@ -19,9 +19,6 @@ Vagrant.configure(2) do |config|
     config.vm.box_version= "20170311.0.0"
     config.vm.box_check_update = false
 	config.vm.boot_timeout = 600
-    config.ssh.username= 'ubuntu'
-	config.ssh.password= 'root'
-	config.ssh.insert_key = 'true'
 	
     #Configure static private IP
     config.vm.network "private_network", ip: "192.168.50.2"
