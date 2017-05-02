@@ -61,7 +61,7 @@ For the goal "clean" and "clean install" you might need to stop the "dev_dockerd
 The Nginx and the web application are connected by a nirtual docker network to enable the host name resolution between this containers. If you add your own web application and you want to make it accessible to the Nginx,
 you should also add this container to the virtual network (dev-default) 
 
-#Certificates
+# Certificates
 Most of the containers include a certs folder located in the single directories where the Dockerfiles are located in. If your whish to configure certificates for your application you might add your certs to this folder to make them available inside the container. (Can be used together with the Nginx or tomcat containers) 
 
 # Comming soon
