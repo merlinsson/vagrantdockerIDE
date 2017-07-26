@@ -11,7 +11,7 @@ This box has been used together with the Spring Tool Suit, so it is recommended 
 
 # Setup
 
-- Checkout project ot the directory of your choice
+- Checkout project to the directory of your choice
 - Change to the directory setup/windows and execute the setup-environment.bat script in ADMINISTRATOR mode
 	- This script will set all variables required to get the box working (Maven project and Target path)
 - Optionally you can open a new command line window in ADMINISTRATOR mode, cd to the setup/windows directory and execute the script in the command line. Anyway it is recommended to close the command line window after the setup has completed. (Enrivonment variables have been refreshed)
