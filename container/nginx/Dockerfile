@@ -1,11 +1,11 @@
 #Version: 0.0.1
-FROM nginx
+FROM nginx:latest
 MAINTAINER Merlin Rothhardt "merlin.rothhardt@gmail.com"
 ENV REFRESHED_AT 2017-04-25
 ARG env
 
 #Installing logrotate for logging management
-RUN apt-get -y update && apt-get install -y logrotate cron vim
+RUN apt-get -y update --fix-missing
 
 # adding the local configuration
 ADD ./config/$env/nginx/ /etc/nginx/
@@ -17,8 +17,6 @@ ADD ./certs/ /etc/nginx/certs/
 
 #Logging management
 RUN mkdir -p "/etc/nginx/logging/"
-ADD ./config/common/nginx-logrotate /etc/logrotate.d/nginx-logrotate
-RUN chmod 644 /etc/logrotate.d/nginx-logrotate
 
 #Start nginx
 ADD ./config/common/docker-start.sh /etc/init.d/docker-start.sh

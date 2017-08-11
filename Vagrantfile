@@ -4,8 +4,8 @@
 Vagrant.configure(2) do |config|
 
 	config.vm.provider "virtualbox" do |v|
-		v.memory = 8096
-		v.cpus = 4
+		v.memory = 4096
+		v.cpus = 2
 		v.name = "DEV - DockerVirtual"
         #Activated the dnshostresolver, to pass DNS queries to the host.
         #This option gets currently disabled and the box will get an DNS-Server address which
