@@ -30,7 +30,7 @@ To get the whole system running you have to execute the following steps:
 # Deployments
 Firstly add the Maven project "dockerdui" (webapp/dockerdui) to your favourite IDE.
 
-- You can make changes to the project and then execute the Maven goals "package" and "tomcat6:reload" with the profile "hot-deploy" which will force a Hot-Deployment of the web application
+- You can make changes to the project and then execute the Maven goals "package" and "tomcat6:reload" with the profile "hot-deploy" which will force a Hot-Deployment of the web application (The Maven Tomcat 6 plugin is the only plugin which provides the "reload" goal. So far it works with any Tomcat Version used for the application e.g Version 6 or higher)
 
 - You can use the Maven goal "clean" to force an undeployment of the web application
 
