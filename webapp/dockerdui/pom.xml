@@ -20,7 +20,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<!-- If there are no local customisations, this can also be "fetch" or "cdn" -->
+		<!-- If there are no local customisations, this can also be "fetch" or 
+			"cdn" -->
 		<vaadin.widgetset.mode>local</vaadin.widgetset.mode>
 	</properties>
 
@@ -66,7 +67,7 @@
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-themes</artifactId>
 		</dependency>
-							<dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 			<version>4.3.4.RELEASE</version>
@@ -129,7 +130,7 @@
 				</configuration>
 			</plugin>
 
-			<!-- The Jetty plugin allows us to easily test the development build by
+			<!-- The Jetty plugin allows us to easily test the development build by 
 				running jetty:run on the command line. -->
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
@@ -182,6 +183,51 @@
 					</snapshots>
 				</pluginRepository>
 			</pluginRepositories>
+		</profile>
+		<profile>
+			<id>hot-deploy</id>
+			<properties>
+				<!-- skip all tests -->
+				<skipTests>true</skipTests>
+				<!-- skip generating the Javadoc -->
+				<maven.javadoc.skip>true</maven.javadoc.skip>
+				<!-- skip the Maven source procedure -->
+				<source.skip>true</source.skip>
+				<!-- skip the Git commit ID plugin -->
+				<git.commit-id.skip>true</git.commit-id.skip>
+				<!-- skip the license check (for e.g. GPL) -->
+				<skipLicenseCheck>true</skipLicenseCheck>
+				<!-- skip compiling the Vaadin widget set -->
+				<gwt.compiler.skip>true</gwt.compiler.skip>
+				<!-- skip compiling main java -->
+				<maven.main.skip>true</maven.main.skip>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.vaadin</groupId>
+						<artifactId>vaadin-maven-plugin</artifactId>
+						<version>${vaadin.plugin.version}</version>
+						<executions>
+							<execution>
+								<phase>none</phase>
+							</execution>
+						</executions>
+					</plugin>
+				  	<plugin>
+						<groupId>org.apache.tomcat.maven</groupId>
+						<artifactId>tomcat6-maven-plugin</artifactId>
+						<version>2.2</version>
+						<configuration>
+							<url>http://dev.dockerdui.de/manager/text</url>
+							<path>/</path>
+							<username>tomcat</username>
+							<password>deploy</password>
+						</configuration>
+					</plugin>
+				</plugins>
+
+			</build>
 		</profile>
 	</profiles>
 

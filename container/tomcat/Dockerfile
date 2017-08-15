@@ -11,14 +11,14 @@ ENV REFRESHED_AT 2017-04-25
 # Adding certs to tomcat
 ADD ./certs/ /usr/local/tomcat/certs/
 
-# Adding configured context.xml to tomcat
-ADD ./config/context.xml      /usr/local/tomcat/conf/context.xml
-
 # Adding configured server.xml to tomcat
 ADD ./config/server.xml      /usr/local/tomcat/conf/server.xml
 
+# Adding tomcat useres for hotdeployment
+ADD ./config/tomcat-users.xml      /usr/local/tomcat/conf/tomcat-users.xml
+
+# Adding manager access rules
+ADD ./config/manager.xml      /usr/local/tomcat/conf/Catalina/localhost/manager.xml
+
 # Adding ENV file for environment parameters
 ADD ./config/setenv.sh /usr/local/tomcat/bin/setenv.sh
-
-# cleanup webapps directory
-RUN rm -rf ./webapps/*
